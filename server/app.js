@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
 const cors = require("cors");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
@@ -53,5 +53,29 @@ mongoose
   .catch((error) => {
     console.error("DB connection error:", error);
   });
+
+  function matrixAdd(matrix) {
+    let sum = 0;
+    for (let i = 0; i < matrix.length; i++) {
+      for (let j = 0; j < matrix[i].length; j++) { 
+        sum += matrix[i][j];
+      }
+    }
+    return sum;
+  }
+  
+  console.log(matrixAdd([[5, 1, 6], [8, 2, 4], [3, 7, 9]]));
+
+  function matrixMultiplication(matrix) {
+    let sum = 1;
+    for (let i = 0; i < matrix.length; i++) {
+      for (let j = 0; j < matrix[i].length; j++) { 
+        sum *= matrix[i][j];
+      }
+    }
+    return sum;
+  }
+  
+  console.log(matrixMultiplication([[5, 1, 6], [8, 2, 4], [3, 7, 9]]));
 
 module.exports = { app, io };

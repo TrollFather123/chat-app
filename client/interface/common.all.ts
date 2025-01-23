@@ -27,3 +27,20 @@ export interface ILoginData {
   email: string;
   password: string;
 }
+
+
+export interface ChatMessageData {
+  _id: string;           
+  createdAt: string;        
+  updatedAt: string;      
+  message: string;         
+  roomId: string;           
+  senderId: string;   
+  read:boolean      
+}
+
+export interface IChatMessageResponse {
+  status:number,
+  message:string,
+  data:ChatMessageData[]
+}

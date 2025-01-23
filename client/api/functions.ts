@@ -1,4 +1,4 @@
-import { ILoginData, IUserResponse, UserLoginResponse } from "@/interface/common.all";
+import { IChatMessageResponse, ILoginData, IUserResponse, UserLoginResponse } from "@/interface/common.all";
 import { axiosInstance } from "./helper"
 
 export const getUsers = async() =>{
@@ -14,6 +14,6 @@ export const loginUser = async(data:ILoginData) =>{
 
 
 export const getRoomChats = async(roomId:string) =>{
-    const res = await axiosInstance.get(`/chat/:${roomId}`);
+    const res = await axiosInstance.get<IChatMessageResponse>(`/chat/${roomId}`);
     return res?.data
 }

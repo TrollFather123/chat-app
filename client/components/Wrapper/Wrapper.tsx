@@ -1,6 +1,10 @@
 import { Box, BoxProps, styled } from "@mui/material";
 import React from "react";
-import ButtonAppBar from "../Header/Header";
+// import ButtonAppBar from "../Header/Header";
+import dynamic from "next/dynamic";
+
+
+const ButtonAppBar = dynamic(()=> import("../Header/Header"),{ssr:false})
 
 const WrapperStyled = styled(Box)``;
 
